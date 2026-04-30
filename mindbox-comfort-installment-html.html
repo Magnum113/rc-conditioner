@@ -1,0 +1,150 @@
+<div class="popmechanic-reset" id="rc-comfort-picker">
+  <input class="rcq-state" type="radio" name="rcq-step" id="rcq-step-1" checked>
+  <input class="rcq-state" type="radio" name="rcq-step" id="rcq-step-2">
+  <input class="rcq-state" type="radio" name="rcq-step" id="rcq-step-3">
+  <input class="rcq-state" type="radio" name="rcq-step" id="rcq-step-4">
+  <input class="rcq-state" type="radio" name="rcq-step" id="rcq-step-result">
+
+  <input class="rcq-state" type="radio" name="rcq-area" id="rcq-area-small" checked>
+  <input class="rcq-state" type="radio" name="rcq-area" id="rcq-area-medium">
+  <input class="rcq-state" type="radio" name="rcq-area" id="rcq-area-large">
+
+  <input class="rcq-state" type="radio" name="rcq-heat" id="rcq-heat-soft" checked>
+  <input class="rcq-state" type="radio" name="rcq-heat" id="rcq-heat-sun">
+  <input class="rcq-state" type="radio" name="rcq-heat" id="rcq-heat-max">
+
+  <input class="rcq-state" type="radio" name="rcq-mode" id="rcq-mode-sleep" checked>
+  <input class="rcq-state" type="radio" name="rcq-mode" id="rcq-mode-turbo">
+  <input class="rcq-state" type="radio" name="rcq-mode" id="rcq-mode-eco">
+
+  <input class="rcq-state" type="radio" name="rcq-install" id="rcq-install-fast" checked>
+  <input class="rcq-state" type="radio" name="rcq-install" id="rcq-install-week">
+  <input class="rcq-state" type="radio" name="rcq-install" id="rcq-install-plan">
+
+  <section class="rcq-shell" aria-label="Персональный подбор кондиционера">
+    <div class="rcq-orbit" aria-hidden="true"></div>
+    <div class="rcq-noise" aria-hidden="true"></div>
+
+    <div class="rcq-copy">
+      <div class="rcq-kicker"><span></span>Свайпер комфорта</div>
+      <h2>Подберите кондиционер под свою комнату за 40 секунд</h2>
+      <p>Ответьте на 4 коротких вопроса. В конце покажем подходящую модель, мощность и сценарий покупки, чтобы можно было сразу оформить заказ в рассрочку.</p>
+
+      <div class="rcq-progress" aria-hidden="true">
+        <span class="rcq-progress-dot rcq-dot-1">1</span>
+        <span class="rcq-progress-line"></span>
+        <span class="rcq-progress-dot rcq-dot-2">2</span>
+        <span class="rcq-progress-line"></span>
+        <span class="rcq-progress-dot rcq-dot-3">3</span>
+        <span class="rcq-progress-line"></span>
+        <span class="rcq-progress-dot rcq-dot-4">4</span>
+      </div>
+
+      <div class="rcq-meter" aria-hidden="true">
+        <span>прохлада</span>
+        <div><i></i></div>
+        <span>жара</span>
+      </div>
+    </div>
+
+    <div class="rcq-card">
+      <div class="rcq-step rcq-step-1">
+        <div class="rcq-step-head">
+          <span>Вопрос 1 из 4</span>
+          <h3>Какая площадь комнаты?</h3>
+        </div>
+        <div class="rcq-options">
+          <label for="rcq-area-small"><b>До 20 м²</b><small>Спальня, детская, кабинет</small></label>
+          <label for="rcq-area-medium"><b>20-35 м²</b><small>Гостиная или большая спальня</small></label>
+          <label for="rcq-area-large"><b>35+ м²</b><small>Студия, зал, открытая зона</small></label>
+        </div>
+        <label class="rcq-next" for="rcq-step-2">Дальше</label>
+      </div>
+
+      <div class="rcq-step rcq-step-2">
+        <div class="rcq-step-head">
+          <span>Вопрос 2 из 4</span>
+          <h3>Насколько комната нагревается?</h3>
+        </div>
+        <div class="rcq-options">
+          <label for="rcq-heat-soft"><b>Умеренно</b><small>Есть тень, солнце не весь день</small></label>
+          <label for="rcq-heat-sun"><b>Солнечная сторона</b><small>Днём заметно жарко</small></label>
+          <label for="rcq-heat-max"><b>Максимальная жара</b><small>Последний этаж, панорамные окна</small></label>
+        </div>
+        <div class="rcq-nav"><label for="rcq-step-1">Назад</label><label class="rcq-next" for="rcq-step-3">Дальше</label></div>
+      </div>
+
+      <div class="rcq-step rcq-step-3">
+        <div class="rcq-step-head">
+          <span>Вопрос 3 из 4</span>
+          <h3>Что важнее всего?</h3>
+        </div>
+        <div class="rcq-options rcq-options-mode">
+          <label for="rcq-mode-sleep"><b>Тихий сон</b><small>Минимум шума ночью</small></label>
+          <label for="rcq-mode-turbo"><b>Быстро охладить</b><small>Зашли с улицы и сразу нужна прохлада</small></label>
+          <label for="rcq-mode-eco"><b>Экономия</b><small>Инвертор и ниже расход энергии</small></label>
+        </div>
+        <div class="rcq-nav"><label for="rcq-step-2">Назад</label><label class="rcq-next" for="rcq-step-4">Дальше</label></div>
+      </div>
+
+      <div class="rcq-step rcq-step-4">
+        <div class="rcq-step-head">
+          <span>Вопрос 4 из 4</span>
+          <h3>Когда хотите оформить заказ?</h3>
+        </div>
+        <div class="rcq-options">
+          <label for="rcq-install-fast"><b>Как можно раньше</b><small>Пока доступна рассрочка 0%</small></label>
+          <label for="rcq-install-week"><b>На этой неделе</b><small>Хочу спокойно выбрать и заказать</small></label>
+          <label for="rcq-install-plan"><b>Планирую заранее</b><small>Хочу зафиксировать выгодную цену</small></label>
+        </div>
+        <div class="rcq-nav"><label for="rcq-step-3">Назад</label><label class="rcq-next" for="rcq-step-result">Показать подбор</label></div>
+      </div>
+
+      <div class="rcq-step rcq-result-step">
+        <div class="rcq-result-top">
+          <span>Мы подобрали вариант</span>
+          <strong>Рассрочка доступна сейчас</strong>
+        </div>
+
+        <div class="rcq-result rcq-result-sleep">
+          <div class="rcq-product-visual" aria-hidden="true"><span></span><i></i></div>
+          <div class="rcq-product-info">
+            <div class="rcq-sale-badge">0% рассрочка</div>
+            <h3>Arctic Whisper 09</h3>
+            <div class="rcq-price"><strong>42 900 ₽</strong><span>47 700 ₽</span></div>
+            <p>Тихий инверторный кондиционер для спальни или детской. Ночной режим, мягкий поток и аккуратное поддержание температуры.</p>
+            <ul><li>до 25 м²</li><li>от 19 дБ</li><li>инвертор</li></ul>
+          </div>
+        </div>
+
+        <div class="rcq-result rcq-result-turbo">
+          <div class="rcq-product-visual" aria-hidden="true"><span></span><i></i></div>
+          <div class="rcq-product-info">
+            <div class="rcq-sale-badge">0% рассрочка</div>
+            <h3>Breeze Turbo 12</h3>
+            <div class="rcq-price"><strong>49 900 ₽</strong><span>55 500 ₽</span></div>
+            <p>Модель с запасом мощности для солнечных комнат. Быстро охлаждает помещение после жаркого дня и уверенно держит температуру.</p>
+            <ul><li>до 35 м²</li><li>турбо-режим</li><li>усиленный поток</li></ul>
+          </div>
+        </div>
+
+        <div class="rcq-result rcq-result-eco">
+          <div class="rcq-product-visual" aria-hidden="true"><span></span><i></i></div>
+          <div class="rcq-product-info">
+            <div class="rcq-sale-badge">0% рассрочка</div>
+            <h3>EcoCool Inverter 12</h3>
+            <div class="rcq-price"><strong>46 900 ₽</strong><span>52 100 ₽</span></div>
+            <p>Баланс комфорта и экономии. Подойдёт для ежедневного использования летом без лишней нагрузки на счёт за электричество.</p>
+            <ul><li>до 35 м²</li><li>A++</li><li>тихий старт</li></ul>
+          </div>
+        </div>
+
+        <div class="rcq-summary">
+          <strong>Оформите кондиционер в рассрочку</strong>
+          <span>После 5 июля скидка 10% завершилась, но можно оформить кондиционер в беспроцентную рассрочку и не откладывать покупку до пика жары.</span>
+          <button type="button" data-popmechanic-submit>Оформить в рассрочку</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
