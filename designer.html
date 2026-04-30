@@ -12,7 +12,7 @@
       <div>
         <div class="kicker">Designer handoff</div>
         <h1>Что нужно задизайнить для двух промо-механик</h1>
-        <p class="lead">Ниже показаны оба блока в desktop и mobile, затем логика адаптации и компонентный состав. Это не финальный дизайн-системный макет, а functional reference для Figma.</p>
+        <p class="lead">Desktop-превью теперь показано первым в реальном широком размере, мобильная версия идёт ниже. После превью — визуальная разбивка компонентов отдельно для каждого блока.</p>
       </div>
       <nav class="nav">
         <a class="primary" href="index.html">Главная витрина</a>
@@ -21,42 +21,78 @@
     </section>
 
     <section class="section">
-      <div class="section-head"><div><h2>Превью блоков</h2><p>Одинаковые iframe используются здесь и на главной странице, чтобы не было расхождений между handoff и рабочим HTML.</p></div></div>
-      <div class="preview-grid">
-        <div class="frame-card desktop-frame"><div class="frame-label"><span>Heat desktop</span><span>fluid</span></div><iframe class="heat" src="component-heat.html"></iframe></div>
-        <div class="frame-card mobile-frame"><div class="frame-label"><span>Heat mobile</span><span>390px</span></div><iframe class="heat" src="component-heat.html"></iframe></div>
-      </div>
-      <div style="height:22px"></div>
-      <div class="preview-grid">
-        <div class="frame-card desktop-frame"><div class="frame-label"><span>Comfort desktop</span><span>interactive</span></div><iframe class="comfort" src="component-comfort.html"></iframe></div>
-        <div class="frame-card mobile-frame"><div class="frame-label"><span>Comfort mobile</span><span>390px</span></div><iframe class="comfort" src="component-comfort.html"></iframe></div>
-      </div>
+      <div class="section-head"><div><h2>Превью блоков</h2><p>Сначала широкий desktop, ниже mobile. Так видно фактическую desktop-композицию без сжатия рядом с телефоном.</p></div></div>
+      <div class="frame-card desktop-frame"><div class="frame-label"><span>Heat desktop</span><span>full width</span></div><iframe class="heat" src="component-heat.html"></iframe></div>
+      <div style="height:24px"></div>
+      <div class="frame-card mobile-frame"><div class="frame-label"><span>Heat mobile</span><span>390px</span></div><iframe class="heat" src="component-heat.html"></iframe></div>
+      <div style="height:34px"></div>
+      <div class="frame-card desktop-frame"><div class="frame-label"><span>Comfort desktop</span><span>full width</span></div><iframe class="comfort" src="component-comfort.html"></iframe></div>
+      <div style="height:24px"></div>
+      <div class="frame-card mobile-frame"><div class="frame-label"><span>Comfort mobile</span><span>390px</span></div><iframe class="comfort" src="component-comfort.html"></iframe></div>
     </section>
 
     <section class="section">
       <div class="section-head"><div><h2>Логика адаптации</h2><p>Что должно быть отражено в Figma для desktop и mobile состояний.</p></div></div>
       <div class="cards">
-        <article class="card"><h3>Heat block</h3><p>Desktop: широкий промо-блок с графиком и CTA. Mobile: контент остаётся в одной колонке, график сохраняет SVG-пропорции, timeline сжимается до 4 равных колонок.</p></article>
-        <article class="card"><h3>Comfort quiz</h3><p>Desktop: двухколоночный layout, слева вводный текст и прогресс, справа карточка вопроса. Mobile: одна колонка, активный вопрос идёт по высоте контента, кнопка сразу под вариантами.</p></article>
-        <article class="card"><h3>Interaction states</h3><p>Нужны состояния: обычный вариант ответа, выбранный вариант, hover/focus для кнопок, финальная карточка товара, мобильный финальный экран.</p></article>
+        <article class="card"><h3>Heat block</h3><p>Desktop: широкий промо-блок с графиком и CTA. Mobile: одна колонка, SVG-график сохраняет пропорции, timeline — 4 равные колонки.</p></article>
+        <article class="card"><h3>Comfort quiz</h3><p>Desktop: двухколоночный layout, слева intro/progress, справа вопрос. Mobile: одна колонка, активный вопрос по высоте контента, кнопка сразу под вариантами.</p></article>
+        <article class="card"><h3>States</h3><p>Нужны состояния вариантов ответа, hover/focus кнопок, финальная карточка товара и мобильный финальный экран.</p></article>
       </div>
     </section>
 
     <section class="section">
-      <div class="section-head"><div><h2>Компоненты блока жары</h2><p>Разбивка, которую удобно перенести в Figma components.</p></div></div>
-      <div class="cards">
-        <article class="card"><h3>Hero header</h3><ul><li>Плашка прогноза</li><li>Заголовок с акцентом</li><li>Поясняющий текст</li></ul></article>
-        <article class="card"><h3>Temperature chart</h3><ul><li>SVG-график</li><li>Grid/y-labels/x-labels</li><li>Line, area, points, marker</li></ul></article>
-        <article class="card"><h3>Urgency + CTA</h3><ul><li>Карточка срочности</li><li>Акционный блок</li><li>Кнопка выбора</li></ul></article>
-      </div>
-    </section>
+      <div class="section-head"><div><h2>Визуальные компоненты</h2><p>Сначала компоненты блока жары, затем отдельно компоненты теста. Так видно, какие элементы относятся к какой механике.</p></div></div>
 
-    <section class="section">
-      <div class="section-head"><div><h2>Компоненты теста</h2><p>Все элементы, которые нужно отрисовать отдельно.</p></div></div>
-      <div class="cards">
-        <article class="card"><h3>Intro panel</h3><ul><li>Kicker</li><li>Большой заголовок</li><li>Описание</li><li>Progress dots</li><li>Heat meter</li></ul></article>
-        <article class="card"><h3>Question card</h3><ul><li>Номер вопроса</li><li>Заголовок</li><li>3 варианта ответа</li><li>Next/back buttons</li></ul></article>
-        <article class="card"><h3>Result card</h3><ul><li>Product visual</li><li>Sale badge</li><li>Product name</li><li>Current/old price</li><li>Specs tags</li><li>Urgency CTA</li></ul></article>
+      <div class="block-divider">Блок 1 · Нарастающая жара</div>
+      <div class="component-gallery">
+        <article class="component-tile">
+          <div class="component-shot">
+            <div class="mini-pill">Прогноз на лето 2026</div>
+            <div class="mini-title">Время позаботиться о комфорте заранее</div>
+            <p class="mini-body">Короткий вводный текст объясняет, почему ждать жары невыгодно.</p>
+          </div>
+          <div class="component-caption"><h3>Header</h3><p>Плашка, заголовок с акцентом, пояснение.</p></div>
+        </article>
+        <article class="component-tile">
+          <div class="component-shot"><div class="mini-chart"></div></div>
+          <div class="component-caption"><h3>Temperature Chart</h3><p>График, линия, заливка, точки, marker, подписи месяцев.</p></div>
+        </article>
+        <article class="component-tile">
+          <div class="component-shot mini-urgency">
+            <div class="mini-urgency-card"><strong>Пик жары ближе</strong><p class="mini-body">Текст срочности без упоминания установки.</p></div>
+            <div class="mini-cta-card">−10% на кондиционеры</div>
+          </div>
+          <div class="component-caption"><h3>Urgency + CTA</h3><p>Карточка срочности, скидочная карточка, кнопка.</p></div>
+        </article>
+      </div>
+
+      <div class="block-divider">Блок 2 · Свайпер комфорта</div>
+      <div class="component-gallery">
+        <article class="component-tile">
+          <div class="component-shot quiz-intro-shot">
+            <div class="mini-pill">Свайпер комфорта</div>
+            <div class="mini-title">Подберите кондиционер за 40 секунд</div>
+            <div class="mini-progress"><span>1</span><span>2</span><span>3</span><span>4</span></div>
+          </div>
+          <div class="component-caption"><h3>Intro Panel</h3><p>Kicker, большой заголовок, описание, progress dots, heat meter.</p></div>
+        </article>
+        <article class="component-tile">
+          <div class="component-shot">
+            <div class="mini-pill">Вопрос 1 из 4</div>
+            <div class="mini-title" style="font-size:26px">Какая площадь комнаты?</div>
+            <span class="mini-option active">До 20 м²</span>
+            <span class="mini-option">20-35 м²</span>
+            <span class="mini-option">35+ м²</span>
+          </div>
+          <div class="component-caption"><h3>Question Card</h3><p>Номер вопроса, заголовок, 3 варианта, selected state, navigation.</p></div>
+        </article>
+        <article class="component-tile">
+          <div class="component-shot">
+            <div class="mini-product"><div class="mini-ac"></div><div><div class="mini-pill">−10%</div><h3 style="margin-top:10px">Arctic Whisper 09</h3><div class="mini-price">42 900 ₽ <span class="mini-old-price">47 700 ₽</span></div></div></div>
+            <div class="mini-cta-card" style="margin-top:18px">Оформить заказ</div>
+          </div>
+          <div class="component-caption"><h3>Result Card</h3><p>Product visual, badge, name, current/old price, specs, urgency CTA.</p></div>
+        </article>
       </div>
     </section>
   </main>
