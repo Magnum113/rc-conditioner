@@ -12,7 +12,7 @@
       <div>
         <div class="kicker">Copywriter handoff</div>
         <h1>Все текстовые зоны для промо-механик</h1>
-        <p class="lead">Текстовые блоки показаны визуально внутри компонентов. Пунктиром отмечены места, где нужен copy: заголовки, подписи, варианты ответов, карточки товаров и CTA.</p>
+        <p class="lead">Страница показывает те же блоки и состояния, что основная витрина. Ниже для каждого блока отдельно указано, где именно нужен текст и какой copy сейчас стоит в коде.</p>
       </div>
       <nav class="nav">
         <a class="primary" href="index.html">Главная витрина</a>
@@ -22,115 +22,100 @@
     </section>
 
     <section class="section">
-      <div class="section-head"><div><h2>Контекст блоков</h2><p>Рабочие превью для понимания места текста в интерфейсе. Desktop и mobile идут вертикально.</p></div></div>
-      <div class="frame-card desktop-frame"><div class="frame-label"><span>Heat block</span><span>desktop</span></div><iframe class="heat" src="component-heat.html"></iframe></div>
-      <div style="height:24px"></div>
-      <div class="frame-card mobile-frame"><div class="frame-label"><span>Comfort quiz</span><span>375px</span></div><iframe class="comfort" src="component-comfort.html"></iframe></div>
-    </section>
+      <div class="section-head"><div><h2>Контекст блоков</h2><p>Согласовано с главной страницей: для каждого блока сначала desktop на всю ширину, ниже mobile 375px.</p></div></div>
 
-    <section class="section">
-      <div class="section-head"><div><h2>Блок 1 · Нарастающая жара</h2><p>Задача текста: показать, что жара приближается, выбор лучше сделать до пика спроса, скидка действует ограниченно.</p></div></div>
-      <div class="component-gallery">
-        <article class="component-tile copy-card-wide">
-          <div class="component-shot">
-            <span class="copy-zone" data-copy="Плашка">Прогноз на лето 2026 · Махачкала</span>
-            <span class="copy-zone" data-copy="Главный заголовок">Время позаботиться о комфорте заранее</span>
-            <span class="copy-zone" data-copy="Подзаголовок">Жара уже идёт. Это не событие одного дня — это процесс, который уже начался. Посмотрите, как меняется температура — и решите, стоит ли ждать.</span>
-          </div>
-          <div class="component-caption"><h3>Hero copy</h3><p>Короткий вход в механику. Важно не перегрузить: заголовок должен работать с графиком.</p></div>
-        </article>
-        <article class="component-tile">
-          <div class="component-shot">
-            <div class="mini-chart"></div>
-            <span class="copy-zone" data-copy="Подпись графика">Махачкала · среднесуточный максимум</span>
-            <span class="copy-zone" data-copy="Месяцы и значения">Май 22°, Июнь 27°, Июль 31°, Август 33°</span>
-          </div>
-          <div class="component-caption"><h3>Chart labels</h3><p>Текст должен быть коротким, так как живёт внутри визуального графика.</p></div>
-        </article>
-        <article class="component-tile copy-card-wide">
-          <div class="component-shot mini-urgency">
-            <span class="copy-zone hot" data-copy="CTA label">Скидка действует до 5 июля</span>
-            <span class="copy-zone hot" data-copy="CTA headline">−10% на кондиционеры</span>
-            <span class="copy-zone hot" data-copy="CTA button">Выбрать кондиционер</span>
-          </div>
-          <div class="component-caption"><h3>Discount CTA</h3><p>В блоке жары остался только нижний CTA. Отдельного текста срочности больше нет.</p></div>
-        </article>
+      <div class="block-section-title"><span>Блок 1</span><h3>Нарастающая жара</h3><p>Механика про рост температуры и переход к скидочному CTA.</p></div>
+      <div class="state-stack">
+        <div class="frame-card desktop-frame"><div class="frame-label"><span>Heat desktop</span><span>full width</span></div><iframe class="heat" src="component-heat.html" scrolling="no"></iframe></div>
+        <div class="frame-card mobile-frame"><div class="frame-label"><span>Heat mobile</span><span>375px</span></div><iframe class="heat" src="component-heat.html" scrolling="no"></iframe></div>
+      </div>
+
+      <div class="block-section-title"><span>Блок 2</span><h3>Свайпер комфорта</h3><p>Механика теста: вопросы, выбор варианта, финальный подобранный кондиционер.</p></div>
+      <div class="state-stack">
+        <div class="frame-card desktop-frame"><div class="frame-label"><span>Comfort desktop</span><span>full width</span></div><iframe class="comfort" src="component-comfort.html" scrolling="no"></iframe></div>
+        <div class="frame-card mobile-frame"><div class="frame-label"><span>Comfort mobile</span><span>375px</span></div><iframe class="comfort" src="component-comfort.html" scrolling="no"></iframe></div>
       </div>
     </section>
 
     <section class="section">
-      <div class="section-head"><div><h2>Блок 2 · Свайпер комфорта</h2><p>Задача текста: сделать подбор лёгким, персональным и ведущим к оформлению заказа.</p></div></div>
-      <div class="component-gallery">
-        <article class="component-tile copy-card-wide">
-          <div class="component-shot quiz-intro-shot">
-            <span class="copy-zone" data-copy="Kicker">Свайпер комфорта</span>
-            <span class="copy-zone" data-copy="Intro heading">Подберите кондиционер под свою комнату за 40 секунд</span>
-            <span class="copy-zone" data-copy="Intro body">Ответьте на 4 коротких вопроса. В конце покажем подходящую модель, мощность и сценарий покупки, чтобы можно было сразу оформить заказ со скидкой.</span>
-          </div>
-          <div class="component-caption"><h3>Intro copy</h3><p>Обещание результата и объяснение, зачем проходить тест.</p></div>
-        </article>
-
-        <article class="component-tile copy-mini-question">
-          <div class="component-shot">
-            <span class="copy-zone" data-copy="Q1 heading">Какая площадь комнаты?</span>
-            <span class="mini-option active">До 20 м²<small>Спальня, детская, кабинет</small></span>
-            <span class="mini-option">20-35 м²<small>Гостиная или большая спальня</small></span>
-            <span class="mini-option">35+ м²<small>Студия, зал, открытая зона</small></span>
-          </div>
-          <div class="component-caption"><h3>Question 1</h3><p>Площадь. Варианты должны быть понятными без консультации.</p></div>
-        </article>
-
-        <article class="component-tile copy-mini-question">
-          <div class="component-shot">
-            <span class="copy-zone" data-copy="Q2 heading">Насколько комната нагревается?</span>
-            <span class="mini-option active">Умеренно<small>Есть тень, солнце не весь день</small></span>
-            <span class="mini-option">Солнечная сторона<small>Днём заметно жарко</small></span>
-            <span class="mini-option">Максимальная жара<small>Последний этаж, панорамные окна</small></span>
-          </div>
-          <div class="component-caption"><h3>Question 2</h3><p>Тепловая нагрузка. Формулировки должны быть бытовыми.</p></div>
-        </article>
-
-        <article class="component-tile copy-mini-question">
-          <div class="component-shot">
-            <span class="copy-zone" data-copy="Q3 heading">Что важнее всего?</span>
-            <span class="mini-option active">Тихий сон<small>Минимум шума ночью</small></span>
-            <span class="mini-option">Быстро охладить<small>Зашли с улицы и сразу нужна прохлада</small></span>
-            <span class="mini-option">Экономия<small>Инвертор и ниже расход энергии</small></span>
-          </div>
-          <div class="component-caption"><h3>Question 3</h3><p>Приоритет. От него зависит финальная модель.</p></div>
-        </article>
-
-        <article class="component-tile copy-mini-question">
-          <div class="component-shot">
-            <span class="copy-zone" data-copy="Q4 heading">Когда хотите оформить заказ?</span>
-            <span class="mini-option active">Как можно раньше<small>Пока действует скидка 10%</small></span>
-            <span class="mini-option">На этой неделе<small>Хочу спокойно выбрать и заказать</small></span>
-            <span class="mini-option">Планирую заранее<small>Хочу зафиксировать выгодную цену</small></span>
-          </div>
-          <div class="component-caption"><h3>Question 4</h3><p>Срочность заказа. Без обещаний дополнительных услуг.</p></div>
-        </article>
+      <div class="section-head"><div><h2>Текстовые зоны · Блок 1</h2><p>Все тексты для блока нарастающей жары. Сам блок выше показывает, как эти зоны выглядят в реальном интерфейсе.</p></div></div>
+      <div class="block-divider">Hero + график + CTA</div>
+      <div class="text-list">
+        <div class="text-item"><small>Плашка над заголовком</small><code>Прогноз на лето 2026 · Махачкала</code></div>
+        <div class="text-item"><small>Главный заголовок</small><code>Время позаботиться о комфорте заранее</code></div>
+        <div class="text-item"><small>Подзаголовок</small><code>Жара уже идёт. Это не событие одного дня — это процесс, который уже начался. Посмотрите, как меняется температура — и решите, стоит ли ждать.</code></div>
+        <div class="text-item"><small>Подпись над графиком</small><code>Махачкала · среднесуточный максимум</code></div>
+        <div class="text-item"><small>CTA label</small><code>Скидка действует до 5 июля</code></div>
+        <div class="text-item"><small>CTA headline</small><code>−10% на кондиционеры</code></div>
+        <div class="text-item"><small>CTA button</small><code>Выбрать кондиционер</code></div>
       </div>
     </section>
 
     <section class="section">
-      <div class="section-head"><div><h2>Финальный экран теста</h2><p>Три товарных результата и общий urgency/CTA.</p></div></div>
-      <div class="component-gallery">
-        <article class="component-tile copy-card-wide">
-          <div class="component-shot copy-product-list">
-            <div class="copy-product-row"><strong>Arctic Whisper 09<br><small>Тихий инверторный кондиционер для спальни или детской. Ночной режим, мягкий поток и аккуратное поддержание температуры.</small></strong><span>42 900 ₽ / 47 700 ₽</span></div>
-            <div class="copy-product-row"><strong>Breeze Turbo 12<br><small>Модель с запасом мощности для солнечных комнат. Быстро охлаждает помещение после жаркого дня и уверенно держит температуру.</small></strong><span>49 900 ₽ / 55 500 ₽</span></div>
-            <div class="copy-product-row"><strong>EcoCool Inverter 12<br><small>Баланс комфорта и экономии. Подойдёт для ежедневного использования летом без лишней нагрузки на счёт за электричество.</small></strong><span>46 900 ₽ / 52 100 ₽</span></div>
-          </div>
-          <div class="component-caption"><h3>Product result copy</h3><p>Название, цена, старая цена, описание и короткие теги характеристик.</p></div>
-        </article>
-        <article class="component-tile">
-          <div class="component-shot mini-urgency">
-            <span class="copy-zone hot" data-copy="Final title">Успейте оформить заказ до 5 июля</span>
-            <span class="copy-zone" data-copy="Final body">Сейчас действует скидка 10% на кондиционер. Чем ближе жара, тем выше спрос и тем меньше шансов спокойно выбрать нужную модель.</span>
-            <span class="copy-zone hot" data-copy="CTA">Оформить заказ</span>
-          </div>
-          <div class="component-caption"><h3>Final urgency</h3><p>Последний мотиватор к оформлению заказа.</p></div>
-        </article>
+      <div class="section-head"><div><h2>Текстовые зоны · Блок 2</h2><p>Тексты теста сгруппированы по реальным состояниям: intro, вопросы, результаты и финальный CTA.</p></div></div>
+
+      <div class="block-divider">Intro теста</div>
+      <div class="frame-card desktop-frame"><div class="frame-label"><span>Реальный intro / вопрос 1</span><span>контекст текста</span></div><iframe class="comfort state-frame" src="state-comfort-q1.html" scrolling="no"></iframe></div>
+      <div class="text-list" style="margin-top:16px">
+        <div class="text-item"><small>Kicker</small><code>Свайпер комфорта</code></div>
+        <div class="text-item"><small>Intro heading</small><code>Подберите кондиционер под свою комнату за 40 секунд</code></div>
+        <div class="text-item"><small>Intro body</small><code>Ответьте на 4 коротких вопроса. В конце покажем подходящую модель, мощность и сценарий покупки, чтобы можно было сразу оформить заказ со скидкой.</code></div>
+      </div>
+
+      <div class="block-divider">Вопросы теста</div>
+      <div class="state-stack">
+        <div class="frame-card desktop-frame"><div class="frame-label"><span>Вопрос 1</span><span>Площадь</span></div><iframe class="comfort state-frame" src="state-comfort-q1.html" scrolling="no"></iframe></div>
+        <div class="frame-card desktop-frame"><div class="frame-label"><span>Вопрос 2</span><span>Нагрев</span></div><iframe class="comfort state-frame" src="state-comfort-q2.html" scrolling="no"></iframe></div>
+        <div class="frame-card desktop-frame"><div class="frame-label"><span>Вопрос 3</span><span>Приоритет</span></div><iframe class="comfort state-frame" src="state-comfort-q3.html" scrolling="no"></iframe></div>
+        <div class="frame-card desktop-frame"><div class="frame-label"><span>Вопрос 4</span><span>Срок заказа</span></div><iframe class="comfort state-frame" src="state-comfort-q4.html" scrolling="no"></iframe></div>
+      </div>
+      <div class="text-list" style="margin-top:16px">
+        <div class="text-item"><small>Q1</small><code>Какая площадь комнаты?
+До 20 м² — Спальня, детская, кабинет
+20-35 м² — Гостиная или большая спальня
+35+ м² — Студия, зал, открытая зона</code></div>
+        <div class="text-item"><small>Q2</small><code>Насколько комната нагревается?
+Умеренно — Есть тень, солнце не весь день
+Солнечная сторона — Днём заметно жарко
+Максимальная жара — Последний этаж, панорамные окна</code></div>
+        <div class="text-item"><small>Q3</small><code>Что важнее всего?
+Тихий сон — Минимум шума ночью
+Быстро охладить — Зашли с улицы и сразу нужна прохлада
+Экономия — Инвертор и ниже расход энергии</code></div>
+        <div class="text-item"><small>Q4</small><code>Когда хотите оформить заказ?
+Как можно раньше — Пока действует скидка 10%
+На этой неделе — Хочу спокойно выбрать и заказать
+Планирую заранее — Хочу зафиксировать выгодную цену</code></div>
+      </div>
+
+      <div class="block-divider">Финальные результаты</div>
+      <div class="state-stack">
+        <div class="frame-card desktop-frame"><div class="frame-label"><span>Результат 1</span><span>Тихий сон</span></div><iframe class="comfort state-frame" src="state-comfort-result-sleep.html" scrolling="no"></iframe></div>
+        <div class="frame-card desktop-frame"><div class="frame-label"><span>Результат 2</span><span>Быстро охладить</span></div><iframe class="comfort state-frame" src="state-comfort-result-turbo.html" scrolling="no"></iframe></div>
+        <div class="frame-card desktop-frame"><div class="frame-label"><span>Результат 3</span><span>Экономия</span></div><iframe class="comfort state-frame" src="state-comfort-result-eco.html" scrolling="no"></iframe></div>
+      </div>
+      <div class="text-list" style="margin-top:16px">
+        <div class="text-item"><small>Тихий сон</small><code>Arctic Whisper 09
+42 900 ₽ / старая 47 700 ₽
+Тихий инверторный кондиционер для спальни или детской. Ночной режим, мягкий поток и аккуратное поддержание температуры.
+Теги: до 25 м², от 19 дБ, инвертор</code></div>
+        <div class="text-item"><small>Быстро охладить</small><code>Breeze Turbo 12
+49 900 ₽ / старая 55 500 ₽
+Модель с запасом мощности для солнечных комнат. Быстро охлаждает помещение после жаркого дня и уверенно держит температуру.
+Теги: до 35 м², турбо-режим, усиленный поток</code></div>
+        <div class="text-item"><small>Экономия</small><code>EcoCool Inverter 12
+46 900 ₽ / старая 52 100 ₽
+Баланс комфорта и экономии. Подойдёт для ежедневного использования летом без лишней нагрузки на счёт за электричество.
+Теги: до 35 м², A++, тихий старт</code></div>
+        <div class="text-item"><small>Финальный CTA</small><code>Успейте оформить заказ до 5 июля
+Сейчас действует скидка 10% на кондиционер. Чем ближе жара, тем выше спрос и тем меньше шансов спокойно выбрать нужную модель.
+Оформить заказ</code></div>
+      </div>
+
+      <div class="block-divider">Mobile-контекст теста</div>
+      <div class="state-stack mobile-state-row">
+        <div class="frame-card mobile-frame"><div class="frame-label"><span>Mobile вопрос</span><span>375px</span></div><iframe class="comfort mobile-state-frame" src="state-comfort-q1.html" scrolling="no"></iframe></div>
+        <div class="frame-card mobile-frame"><div class="frame-label"><span>Mobile результат</span><span>375px</span></div><iframe class="comfort mobile-state-frame" src="state-comfort-result-sleep.html" scrolling="no"></iframe></div>
       </div>
     </section>
   </main>
