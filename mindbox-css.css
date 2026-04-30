@@ -376,32 +376,30 @@
 }
 
 #popmechanic-form .rc-urgency {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 16px;
+  display: block;
+  margin-top: 12px;
 }
 
 #popmechanic-form .rc-cta {
   position: relative;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: auto minmax(180px, 1fr) auto;
   align-items: center;
-  justify-content: space-between;
-  gap: 8px 16px;
-  width: min(100%, 560px);
+  gap: 12px;
+  width: 100%;
   overflow: hidden;
-  padding: 16px 20px;
+  padding: 12px 14px;
   border-radius: 14px;
   background: linear-gradient(135deg, #ff5436, #ff1a3c);
   color: #ffffff;
-  box-shadow: 0 14px 36px rgba(255, 30, 60, 0.3);
+  box-shadow: 0 10px 26px rgba(255, 30, 60, 0.22);
 }
 
 #popmechanic-form .rc-cta::before {
   content: "";
   position: absolute;
   inset: -50% -10%;
-  background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0.25) 50%, transparent 70%);
+  background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0.22) 50%, transparent 70%);
   transform: translateX(-100%);
   animation: rcShine 3.6s ease-in-out infinite;
 }
@@ -413,40 +411,41 @@
 }
 
 #popmechanic-form .rc-cta-label {
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  opacity: 0.85;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  opacity: 0.86;
   text-transform: uppercase;
 }
 
 #popmechanic-form .rc-cta-headline {
-  font-size: 16px;
-  font-weight: 800;
-  line-height: 1.2;
+  font-size: clamp(15px, 1.4vw, 18px);
+  font-weight: 900;
+  line-height: 1.1;
   letter-spacing: -0.01em;
-  min-width: 220px;
+  text-align: center;
 }
 
 #popmechanic-form .rc-cta-btn {
-  align-self: flex-start;
-  margin-top: 4px;
-  padding: 10px 16px;
+  justify-self: end;
   border: 0;
-  border-radius: 10px;
   background: #ffffff;
   color: #c81226;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.14);
   cursor: pointer;
   font: inherit;
-  font-size: 13px;
-  font-weight: 800;
+  font-size: 12px;
+  font-weight: 900;
   letter-spacing: 0.01em;
+  padding: 9px 13px;
+  border-radius: 10px;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
+  white-space: nowrap;
 }
 
 #popmechanic-form .rc-cta-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.22);
 }
 
 #popmechanic-form .rc-particles {
@@ -710,10 +709,17 @@
   }
 
   #popmechanic-form .rc-cta {
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    padding: 20px;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 14px;
+  }
+
+  #popmechanic-form .rc-cta-headline {
+    text-align: left;
+  }
+
+  #popmechanic-form .rc-cta-btn {
+    justify-self: start;
   }
 
   #popmechanic-form .rc-sun {

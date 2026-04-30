@@ -171,8 +171,8 @@ iframe {
   border: 0;
   background: #06101e;
 }
-.desktop-frame iframe.heat { height: 860px; }
-.mobile-frame iframe.heat { height: 900px; }
+.desktop-frame iframe.heat { height: 980px; }
+.mobile-frame iframe.heat { height: 980px; }
 .desktop-frame iframe.comfort { height: 820px; }
 .mobile-frame iframe.comfort { height: 1180px; }
 .mobile-frame { max-width: 375px; }
