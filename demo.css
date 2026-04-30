@@ -141,7 +141,7 @@ h1 {
 }
 .preview-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 430px;
+  grid-template-columns: minmax(0, 1fr) 375px;
   gap: 22px;
   align-items: start;
 }
@@ -175,7 +175,7 @@ iframe {
 .mobile-frame iframe.heat { height: 900px; }
 .desktop-frame iframe.comfort { height: 820px; }
 .mobile-frame iframe.comfort { height: 1180px; }
-.mobile-frame { max-width: 430px; }
+.mobile-frame { max-width: 375px; }
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -256,8 +256,8 @@ iframe {
   gap: 24px;
 }
 .mobile-frame {
-  width: min(430px, 100%);
-  max-width: 430px;
+  width: min(375px, 100%);
+  max-width: 375px;
 }
 .component-gallery {
   display: grid;
@@ -517,7 +517,7 @@ iframe {
   height: 820px;
 }
 .mobile-state-row {
-  grid-template-columns: repeat(2, minmax(0, 430px));
+  grid-template-columns: repeat(2, minmax(0, 375px));
   align-items: start;
 }
 .mobile-state-frame {
