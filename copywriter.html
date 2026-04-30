@@ -11,8 +11,8 @@
     <section class="hero">
       <div>
         <div class="kicker">Copywriter handoff</div>
-        <h1>Все текстовые зоны для промо-механик</h1>
-        <p class="lead">Страница показывает те же блоки и состояния, что основная витрина. Ниже для каждого блока отдельно указано, где именно нужен текст и какой copy сейчас стоит в коде.</p>
+        <h1>Тексты для двух промо-механик</h1>
+        <p class="lead">Здесь показаны реальные блоки и состояния. Задача копирайтера — посмотреть контекст на экране и предложить тексты, которые можно заменить в коде.</p>
       </div>
       <nav class="nav">
         <a class="primary" href="index.html">Главная витрина</a>
@@ -23,100 +23,35 @@
     </section>
 
     <section class="section">
-      <div class="section-head"><div><h2>Контекст блоков</h2><p>Согласовано с главной страницей: для каждого блока сначала desktop на всю ширину, ниже mobile 375px.</p></div></div>
+      <div class="section-head"><div><h2>Блок 1 · Нарастающая жара</h2><p>Ниже показан весь первый блок. Нужно написать текст для всего, что видно на экране: плашка, заголовок, подзаголовок, подписи, CTA. Можно что-то убрать, дополнить или упростить, если так блок станет сильнее.</p></div></div>
+      <div class="frame-card desktop-frame"><div class="frame-label"><span>Блок 1 desktop</span><span>full width</span></div><iframe class="heat" src="component-heat.html" scrolling="no"></iframe></div>
+      <div style="height:24px"></div>
+      <div class="frame-card mobile-frame"><div class="frame-label"><span>Блок 1 mobile</span><span>375px</span></div><iframe class="heat" src="component-heat.html" scrolling="no"></iframe></div>
+    </section>
 
-      <div class="block-section-title"><span>Блок 1</span><h3>Нарастающая жара</h3><p>Механика про рост температуры и переход к скидочному CTA.</p></div>
-      <div class="state-stack">
-        <div class="frame-card desktop-frame"><div class="frame-label"><span>Heat desktop</span><span>full width</span></div><iframe class="heat" src="component-heat.html" scrolling="no"></iframe></div>
-        <div class="frame-card mobile-frame"><div class="frame-label"><span>Heat mobile</span><span>375px</span></div><iframe class="heat" src="component-heat.html" scrolling="no"></iframe></div>
-      </div>
+    <section class="section">
+      <div class="section-head"><div><h2>Блок 2 · Свайпер комфорта</h2><p>Сначала показан весь второй блок целиком. Ниже отдельно идут реальные компоненты: каждый вопрос и все варианты финального экрана.</p></div></div>
+      <div class="frame-card desktop-frame"><div class="frame-label"><span>Блок 2 desktop</span><span>full width</span></div><iframe class="comfort" src="component-comfort.html" scrolling="no"></iframe></div>
+      <div style="height:24px"></div>
+      <div class="frame-card mobile-frame"><div class="frame-label"><span>Блок 2 mobile</span><span>375px</span></div><iframe class="comfort" src="component-comfort.html" scrolling="no"></iframe></div>
+    </section>
 
-      <div class="block-section-title"><span>Блок 2</span><h3>Свайпер комфорта</h3><p>Механика теста: вопросы, выбор варианта, финальный подобранный кондиционер.</p></div>
+    <section class="section">
+      <div class="section-head"><div><h2>Компоненты блока 2 · Вопросы</h2><p>Для каждого вопроса нужен заголовок, варианты ответа и короткие пояснения к вариантам. Формулировки должны быть понятны без консультации менеджера.</p></div></div>
       <div class="state-stack">
-        <div class="frame-card desktop-frame"><div class="frame-label"><span>Comfort desktop</span><span>full width</span></div><iframe class="comfort" src="component-comfort.html" scrolling="no"></iframe></div>
-        <div class="frame-card mobile-frame"><div class="frame-label"><span>Comfort mobile</span><span>375px</span></div><iframe class="comfort" src="component-comfort.html" scrolling="no"></iframe></div>
+        <div class="frame-card desktop-frame"><div class="frame-label"><span>Вопрос 1</span><span>Площадь комнаты</span></div><iframe class="comfort state-frame" src="state-comfort-q1.html" scrolling="no"></iframe></div>
+        <div class="frame-card desktop-frame"><div class="frame-label"><span>Вопрос 2</span><span>Нагрев комнаты</span></div><iframe class="comfort state-frame" src="state-comfort-q2.html" scrolling="no"></iframe></div>
+        <div class="frame-card desktop-frame"><div class="frame-label"><span>Вопрос 3</span><span>Главный приоритет</span></div><iframe class="comfort state-frame" src="state-comfort-q3.html" scrolling="no"></iframe></div>
+        <div class="frame-card desktop-frame"><div class="frame-label"><span>Вопрос 4</span><span>Готовность оформить заказ</span></div><iframe class="comfort state-frame" src="state-comfort-q4.html" scrolling="no"></iframe></div>
       </div>
     </section>
 
     <section class="section">
-      <div class="section-head"><div><h2>Текстовые зоны · Блок 1</h2><p>Все тексты для блока нарастающей жары. Сам блок выше показывает, как эти зоны выглядят в реальном интерфейсе.</p></div></div>
-      <div class="block-divider">Hero + график + CTA</div>
-      <div class="text-list">
-        <div class="text-item"><small>Плашка над заголовком</small><code>Прогноз на лето 2026 · Махачкала</code></div>
-        <div class="text-item"><small>Главный заголовок</small><code>Время позаботиться о комфорте заранее</code></div>
-        <div class="text-item"><small>Подзаголовок</small><code>Жара уже идёт. Это не событие одного дня — это процесс, который уже начался. Посмотрите, как меняется температура — и решите, стоит ли ждать.</code></div>
-        <div class="text-item"><small>Подпись над графиком</small><code>Махачкала · среднесуточный максимум</code></div>
-        <div class="text-item"><small>CTA label</small><code>Скидка действует до 5 июля</code></div>
-        <div class="text-item"><small>CTA headline</small><code>−10% на кондиционеры</code></div>
-        <div class="text-item"><small>CTA button</small><code>Выбрать кондиционер</code></div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-head"><div><h2>Текстовые зоны · Блок 2</h2><p>Тексты теста сгруппированы по реальным состояниям: intro, вопросы, результаты и финальный CTA.</p></div></div>
-
-      <div class="block-divider">Intro теста</div>
-      <div class="frame-card desktop-frame"><div class="frame-label"><span>Реальный intro / вопрос 1</span><span>контекст текста</span></div><iframe class="comfort state-frame" src="state-comfort-q1.html" scrolling="no"></iframe></div>
-      <div class="text-list" style="margin-top:16px">
-        <div class="text-item"><small>Kicker</small><code>Свайпер комфорта</code></div>
-        <div class="text-item"><small>Intro heading</small><code>Подберите кондиционер под свою комнату за 40 секунд</code></div>
-        <div class="text-item"><small>Intro body</small><code>Ответьте на 4 коротких вопроса. В конце покажем подходящую модель, мощность и сценарий покупки, чтобы можно было сразу оформить заказ со скидкой.</code></div>
-      </div>
-
-      <div class="block-divider">Вопросы теста</div>
+      <div class="section-head"><div><h2>Компоненты блока 2 · Финальные экраны</h2><p>Нужно написать тексты для всех вариантов результата: название модели, описание, характеристики, цены, срочный блок и CTA.</p></div></div>
       <div class="state-stack">
-        <div class="frame-card desktop-frame"><div class="frame-label"><span>Вопрос 1</span><span>Площадь</span></div><iframe class="comfort state-frame" src="state-comfort-q1.html" scrolling="no"></iframe></div>
-        <div class="frame-card desktop-frame"><div class="frame-label"><span>Вопрос 2</span><span>Нагрев</span></div><iframe class="comfort state-frame" src="state-comfort-q2.html" scrolling="no"></iframe></div>
-        <div class="frame-card desktop-frame"><div class="frame-label"><span>Вопрос 3</span><span>Приоритет</span></div><iframe class="comfort state-frame" src="state-comfort-q3.html" scrolling="no"></iframe></div>
-        <div class="frame-card desktop-frame"><div class="frame-label"><span>Вопрос 4</span><span>Срок заказа</span></div><iframe class="comfort state-frame" src="state-comfort-q4.html" scrolling="no"></iframe></div>
-      </div>
-      <div class="text-list" style="margin-top:16px">
-        <div class="text-item"><small>Q1</small><code>Какая площадь комнаты?
-До 20 м² — Спальня, детская, кабинет
-20-35 м² — Гостиная или большая спальня
-35+ м² — Студия, зал, открытая зона</code></div>
-        <div class="text-item"><small>Q2</small><code>Насколько комната нагревается?
-Умеренно — Есть тень, солнце не весь день
-Солнечная сторона — Днём заметно жарко
-Максимальная жара — Последний этаж, панорамные окна</code></div>
-        <div class="text-item"><small>Q3</small><code>Что важнее всего?
-Тихий сон — Минимум шума ночью
-Быстро охладить — Зашли с улицы и сразу нужна прохлада
-Экономия — Инвертор и ниже расход энергии</code></div>
-        <div class="text-item"><small>Q4</small><code>Когда хотите оформить заказ?
-Как можно раньше — Пока действует скидка 10%
-На этой неделе — Хочу спокойно выбрать и заказать
-Планирую заранее — Хочу зафиксировать выгодную цену</code></div>
-      </div>
-
-      <div class="block-divider">Финальные результаты</div>
-      <div class="state-stack">
-        <div class="frame-card desktop-frame"><div class="frame-label"><span>Результат 1</span><span>Тихий сон</span></div><iframe class="comfort state-frame" src="state-comfort-result-sleep.html" scrolling="no"></iframe></div>
-        <div class="frame-card desktop-frame"><div class="frame-label"><span>Результат 2</span><span>Быстро охладить</span></div><iframe class="comfort state-frame" src="state-comfort-result-turbo.html" scrolling="no"></iframe></div>
-        <div class="frame-card desktop-frame"><div class="frame-label"><span>Результат 3</span><span>Экономия</span></div><iframe class="comfort state-frame" src="state-comfort-result-eco.html" scrolling="no"></iframe></div>
-      </div>
-      <div class="text-list" style="margin-top:16px">
-        <div class="text-item"><small>Тихий сон</small><code>Arctic Whisper 09
-42 900 ₽ / старая 47 700 ₽
-Тихий инверторный кондиционер для спальни или детской. Ночной режим, мягкий поток и аккуратное поддержание температуры.
-Теги: до 25 м², от 19 дБ, инвертор</code></div>
-        <div class="text-item"><small>Быстро охладить</small><code>Breeze Turbo 12
-49 900 ₽ / старая 55 500 ₽
-Модель с запасом мощности для солнечных комнат. Быстро охлаждает помещение после жаркого дня и уверенно держит температуру.
-Теги: до 35 м², турбо-режим, усиленный поток</code></div>
-        <div class="text-item"><small>Экономия</small><code>EcoCool Inverter 12
-46 900 ₽ / старая 52 100 ₽
-Баланс комфорта и экономии. Подойдёт для ежедневного использования летом без лишней нагрузки на счёт за электричество.
-Теги: до 35 м², A++, тихий старт</code></div>
-        <div class="text-item"><small>Финальный CTA</small><code>Успейте оформить заказ до 5 июля
-Сейчас действует скидка 10% на кондиционер. Чем ближе жара, тем выше спрос и тем меньше шансов спокойно выбрать нужную модель.
-Оформить заказ</code></div>
-      </div>
-
-      <div class="block-divider">Mobile-контекст теста</div>
-      <div class="state-stack mobile-state-row">
-        <div class="frame-card mobile-frame"><div class="frame-label"><span>Mobile вопрос</span><span>375px</span></div><iframe class="comfort mobile-state-frame" src="state-comfort-q1.html" scrolling="no"></iframe></div>
-        <div class="frame-card mobile-frame"><div class="frame-label"><span>Mobile результат</span><span>375px</span></div><iframe class="comfort mobile-state-frame" src="state-comfort-result-sleep.html" scrolling="no"></iframe></div>
+        <div class="frame-card desktop-frame"><div class="frame-label"><span>Финал 1</span><span>Тихий сон</span></div><iframe class="comfort state-frame" src="state-comfort-result-sleep.html" scrolling="no"></iframe></div>
+        <div class="frame-card desktop-frame"><div class="frame-label"><span>Финал 2</span><span>Быстро охладить</span></div><iframe class="comfort state-frame" src="state-comfort-result-turbo.html" scrolling="no"></iframe></div>
+        <div class="frame-card desktop-frame"><div class="frame-label"><span>Финал 3</span><span>Экономия</span></div><iframe class="comfort state-frame" src="state-comfort-result-eco.html" scrolling="no"></iframe></div>
       </div>
     </section>
   </main>
