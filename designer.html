@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RC Conditioner designer handoff</title>
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div>
+        <div class="kicker">Designer handoff</div>
+        <h1>Что нужно задизайнить для двух промо-механик</h1>
+        <p class="lead">Ниже показаны оба блока в desktop и mobile, затем логика адаптации и компонентный состав. Это не финальный дизайн-системный макет, а functional reference для Figma.</p>
+      </div>
+      <nav class="nav">
+        <a class="primary" href="index.html">Главная витрина</a>
+        <a href="copywriter.html">Для копирайтера</a>
+      </nav>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div><h2>Превью блоков</h2><p>Одинаковые iframe используются здесь и на главной странице, чтобы не было расхождений между handoff и рабочим HTML.</p></div></div>
+      <div class="preview-grid">
+        <div class="frame-card desktop-frame"><div class="frame-label"><span>Heat desktop</span><span>fluid</span></div><iframe class="heat" src="component-heat.html"></iframe></div>
+        <div class="frame-card mobile-frame"><div class="frame-label"><span>Heat mobile</span><span>390px</span></div><iframe class="heat" src="component-heat.html"></iframe></div>
+      </div>
+      <div style="height:22px"></div>
+      <div class="preview-grid">
+        <div class="frame-card desktop-frame"><div class="frame-label"><span>Comfort desktop</span><span>interactive</span></div><iframe class="comfort" src="component-comfort.html"></iframe></div>
+        <div class="frame-card mobile-frame"><div class="frame-label"><span>Comfort mobile</span><span>390px</span></div><iframe class="comfort" src="component-comfort.html"></iframe></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div><h2>Логика адаптации</h2><p>Что должно быть отражено в Figma для desktop и mobile состояний.</p></div></div>
+      <div class="cards">
+        <article class="card"><h3>Heat block</h3><p>Desktop: широкий промо-блок с графиком и CTA. Mobile: контент остаётся в одной колонке, график сохраняет SVG-пропорции, timeline сжимается до 4 равных колонок.</p></article>
+        <article class="card"><h3>Comfort quiz</h3><p>Desktop: двухколоночный layout, слева вводный текст и прогресс, справа карточка вопроса. Mobile: одна колонка, активный вопрос идёт по высоте контента, кнопка сразу под вариантами.</p></article>
+        <article class="card"><h3>Interaction states</h3><p>Нужны состояния: обычный вариант ответа, выбранный вариант, hover/focus для кнопок, финальная карточка товара, мобильный финальный экран.</p></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div><h2>Компоненты блока жары</h2><p>Разбивка, которую удобно перенести в Figma components.</p></div></div>
+      <div class="cards">
+        <article class="card"><h3>Hero header</h3><ul><li>Плашка прогноза</li><li>Заголовок с акцентом</li><li>Поясняющий текст</li></ul></article>
+        <article class="card"><h3>Temperature chart</h3><ul><li>SVG-график</li><li>Grid/y-labels/x-labels</li><li>Line, area, points, marker</li></ul></article>
+        <article class="card"><h3>Urgency + CTA</h3><ul><li>Карточка срочности</li><li>Акционный блок</li><li>Кнопка выбора</li></ul></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div><h2>Компоненты теста</h2><p>Все элементы, которые нужно отрисовать отдельно.</p></div></div>
+      <div class="cards">
+        <article class="card"><h3>Intro panel</h3><ul><li>Kicker</li><li>Большой заголовок</li><li>Описание</li><li>Progress dots</li><li>Heat meter</li></ul></article>
+        <article class="card"><h3>Question card</h3><ul><li>Номер вопроса</li><li>Заголовок</li><li>3 варианта ответа</li><li>Next/back buttons</li></ul></article>
+        <article class="card"><h3>Result card</h3><ul><li>Product visual</li><li>Sale badge</li><li>Product name</li><li>Current/old price</li><li>Specs tags</li><li>Urgency CTA</li></ul></article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

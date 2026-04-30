@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RC Conditioner promo mechanics</title>
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div>
+        <div class="kicker">Promo mechanics</div>
+        <h1>Две механики для промо-страницы кондиционеров</h1>
+        <p class="lead">На этой странице показаны HTML-блоки для Mindbox: анимация нарастающей жары и интерактивный подбор кондиционера. Ниже есть desktop и mobile preview каждого блока.</p>
+      </div>
+      <nav class="nav" aria-label="Разделы">
+        <a class="primary" href="designer.html">Страница дизайнера</a>
+        <a class="primary" href="copywriter.html">Страница копирайтера</a>
+        <a href="#heat">Блок жары</a>
+        <a href="#comfort">Тест-подбор</a>
+      </nav>
+    </section>
+
+    <section class="section" id="heat">
+      <div class="section-head">
+        <div>
+          <h2>Блок 1. Нарастающая жара</h2>
+          <p>Показывает рост температуры от мая к августу и создаёт ощущение срочности перед покупкой.</p>
+        </div>
+        <a class="link-btn" href="component-heat.html" target="_blank">Открыть отдельный URL</a>
+      </div>
+      <div class="preview-grid">
+        <div class="frame-card desktop-frame"><div class="frame-label"><span>Desktop</span><span>fluid width</span></div><iframe class="heat" src="component-heat.html" title="Heat desktop preview"></iframe></div>
+        <div class="frame-card mobile-frame"><div class="frame-label"><span>Mobile</span><span>390px</span></div><iframe class="heat" src="component-heat.html" title="Heat mobile preview"></iframe></div>
+      </div>
+    </section>
+
+    <section class="section" id="comfort">
+      <div class="section-head">
+        <div>
+          <h2>Блок 2. Свайпер комфорта</h2>
+          <p>CSS-only тест из 4 вопросов: площадь, нагрев, приоритет и готовность оформить заказ. В финале показывает подобранный кондиционер и CTA.</p>
+        </div>
+        <a class="link-btn" href="component-comfort.html" target="_blank">Открыть отдельный URL</a>
+      </div>
+      <div class="preview-grid">
+        <div class="frame-card desktop-frame"><div class="frame-label"><span>Desktop</span><span>interactive</span></div><iframe class="comfort" src="component-comfort.html" title="Comfort desktop preview"></iframe></div>
+        <div class="frame-card mobile-frame"><div class="frame-label"><span>Mobile</span><span>390px</span></div><iframe class="comfort" src="component-comfort.html" title="Comfort mobile preview"></iframe></div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
