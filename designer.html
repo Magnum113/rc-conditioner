@@ -44,57 +44,33 @@
     </section>
 
     <section class="section">
-      <div class="section-head"><div><h2>Визуальные компоненты</h2><p>Сначала компоненты блока жары, затем отдельно компоненты теста. Так видно, какие элементы относятся к какой механике.</p></div></div>
+      <div class="section-head"><div><h2>Реальные состояния для дизайна</h2><p>Ниже не условные карточки, а те же HTML/CSS-блоки, что используются в основных превью. Эти состояния можно переносить в Figma как точные экраны: меняем дизайн, затем заменяем стили и разметку в коде.</p></div></div>
 
       <div class="block-divider">Блок 1 · Нарастающая жара</div>
-      <div class="component-gallery">
-        <article class="component-tile">
-          <div class="component-shot">
-            <div class="mini-pill">Прогноз на лето 2026</div>
-            <div class="mini-title">Время позаботиться о комфорте заранее</div>
-            <p class="mini-body">Короткий вводный текст объясняет, почему ждать жары невыгодно.</p>
-          </div>
-          <div class="component-caption"><h3>Header</h3><p>Плашка, заголовок с акцентом, пояснение.</p></div>
-        </article>
-        <article class="component-tile">
-          <div class="component-shot"><div class="mini-chart"></div></div>
-          <div class="component-caption"><h3>Temperature Chart</h3><p>График, линия, заливка, точки, marker, подписи месяцев.</p></div>
-        </article>
-        <article class="component-tile">
-          <div class="component-shot mini-urgency">
-            <div class="mini-cta-card">Скидка действует до 5 июля<br>−10% на кондиционеры<br><br>Выбрать кондиционер</div>
-          </div>
-          <div class="component-caption"><h3>Discount CTA</h3><p>Единственный нижний блок после графика: срок скидки, размер скидки и кнопка.</p></div>
-        </article>
+      <div class="state-stack">
+        <div class="frame-card desktop-frame"><div class="frame-label"><span>Состояние блока</span><span>Анимированный цикл: холод → жара → CTA</span></div><iframe class="heat" src="component-heat.html" scrolling="no"></iframe></div>
+        <div class="frame-card mobile-frame"><div class="frame-label"><span>Мобильное состояние</span><span>тот же блок в узкой ширине</span></div><iframe class="heat" src="component-heat.html" scrolling="no"></iframe></div>
       </div>
 
-      <div class="block-divider">Блок 2 · Свайпер комфорта</div>
-      <div class="component-gallery">
-        <article class="component-tile">
-          <div class="component-shot quiz-intro-shot">
-            <div class="mini-pill">Свайпер комфорта</div>
-            <div class="mini-title">Подберите кондиционер за 40 секунд</div>
-            <div class="mini-progress"><span>1</span><span>2</span><span>3</span><span>4</span></div>
-          </div>
-          <div class="component-caption"><h3>Intro Panel</h3><p>Kicker, большой заголовок, описание, progress dots, heat meter.</p></div>
-        </article>
-        <article class="component-tile">
-          <div class="component-shot">
-            <div class="mini-pill">Вопрос 1 из 4</div>
-            <div class="mini-title" style="font-size:26px">Какая площадь комнаты?</div>
-            <span class="mini-option active">До 20 м²</span>
-            <span class="mini-option">20-35 м²</span>
-            <span class="mini-option">35+ м²</span>
-          </div>
-          <div class="component-caption"><h3>Question Card</h3><p>Номер вопроса, заголовок, 3 варианта, selected state, navigation.</p></div>
-        </article>
-        <article class="component-tile">
-          <div class="component-shot">
-            <div class="mini-product"><div class="mini-ac"></div><div><div class="mini-pill">−10%</div><h3 style="margin-top:10px">Arctic Whisper 09</h3><div class="mini-price">42 900 ₽ <span class="mini-old-price">47 700 ₽</span></div></div></div>
-            <div class="mini-cta-card" style="margin-top:18px">Оформить заказ</div>
-          </div>
-          <div class="component-caption"><h3>Result Card</h3><p>Product visual, badge, name, current/old price, specs, urgency CTA.</p></div>
-        </article>
+      <div class="block-divider">Блок 2 · Свайпер комфорта · Вопросы</div>
+      <div class="state-stack">
+        <div class="frame-card desktop-frame"><div class="frame-label"><span>Вопрос 1</span><span>Площадь комнаты</span></div><iframe class="comfort state-frame" src="state-comfort-q1.html" scrolling="no"></iframe></div>
+        <div class="frame-card desktop-frame"><div class="frame-label"><span>Вопрос 2</span><span>Нагрев комнаты</span></div><iframe class="comfort state-frame" src="state-comfort-q2.html" scrolling="no"></iframe></div>
+        <div class="frame-card desktop-frame"><div class="frame-label"><span>Вопрос 3</span><span>Главный приоритет</span></div><iframe class="comfort state-frame" src="state-comfort-q3.html" scrolling="no"></iframe></div>
+        <div class="frame-card desktop-frame"><div class="frame-label"><span>Вопрос 4</span><span>Готовность оформить заказ</span></div><iframe class="comfort state-frame" src="state-comfort-q4.html" scrolling="no"></iframe></div>
+      </div>
+
+      <div class="block-divider">Блок 2 · Свайпер комфорта · Финальные результаты</div>
+      <div class="state-stack">
+        <div class="frame-card desktop-frame"><div class="frame-label"><span>Результат 1</span><span>Тихий сон</span></div><iframe class="comfort state-frame" src="state-comfort-result-sleep.html" scrolling="no"></iframe></div>
+        <div class="frame-card desktop-frame"><div class="frame-label"><span>Результат 2</span><span>Быстро охладить</span></div><iframe class="comfort state-frame" src="state-comfort-result-turbo.html" scrolling="no"></iframe></div>
+        <div class="frame-card desktop-frame"><div class="frame-label"><span>Результат 3</span><span>Экономия</span></div><iframe class="comfort state-frame" src="state-comfort-result-eco.html" scrolling="no"></iframe></div>
+      </div>
+
+      <div class="block-divider">Блок 2 · Mobile-состояния</div>
+      <div class="state-stack mobile-state-row">
+        <div class="frame-card mobile-frame"><div class="frame-label"><span>Mobile вопрос</span><span>варианты + кнопка сразу ниже</span></div><iframe class="comfort mobile-state-frame" src="state-comfort-q1.html" scrolling="no"></iframe></div>
+        <div class="frame-card mobile-frame"><div class="frame-label"><span>Mobile результат</span><span>карточка товара + CTA</span></div><iframe class="comfort mobile-state-frame" src="state-comfort-result-sleep.html" scrolling="no"></iframe></div>
       </div>
     </section>
   </main>

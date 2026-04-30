@@ -1,0 +1,888 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>state-comfort-q1.html</title>
+  <style>
+    body { margin: 0; background: #06101e; }
+#rc-comfort-picker {
+  --rcq-ink: #f7fbff;
+  --rcq-muted: rgba(247, 251, 255, 0.68);
+  --rcq-cold: #52d6ff;
+  --rcq-cold-2: #1f7cff;
+  --rcq-warm: #ffb84d;
+  --rcq-hot: #ff4d35;
+  --rcq-burn: #e51b3f;
+  --rcq-panel: rgba(5, 16, 31, 0.74);
+  --rcq-line: rgba(255, 255, 255, 0.14);
+  width: 100%;
+  color: var(--rcq-ink);
+  font-family: "Manrope", "Montserrat", "Trebuchet MS", sans-serif;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+#rc-comfort-picker,
+#rc-comfort-picker * {
+  box-sizing: border-box;
+}
+
+#rc-comfort-picker .rcq-state {
+  display: none;
+}
+
+#rc-comfort-picker .rcq-shell {
+  position: relative;
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: 24px;
+  overflow: hidden;
+  width: 100%;
+  padding: 34px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 12% 14%, rgba(82, 214, 255, 0.28), transparent 30%),
+    radial-gradient(circle at 90% 82%, rgba(255, 77, 53, 0.25), transparent 34%),
+    linear-gradient(135deg, #081629 0%, #102a47 48%, #3b1621 100%);
+  box-shadow: 0 26px 80px rgba(0, 0, 0, 0.34);
+  isolation: isolate;
+}
+
+#rc-comfort-picker .rcq-orbit {
+  position: absolute;
+  inset: -40% -20% auto auto;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: conic-gradient(from 130deg, rgba(82, 214, 255, 0), rgba(82, 214, 255, 0.32), rgba(255, 184, 77, 0.34), rgba(255, 77, 53, 0));
+  filter: blur(10px);
+  opacity: 0.9;
+  animation: rcqOrbit 12s linear infinite;
+  z-index: -1;
+}
+
+#rc-comfort-picker .rcq-noise {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(120deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 18px 18px;
+  mask-image: radial-gradient(circle at 50% 50%, black, transparent 76%);
+  opacity: 0.22;
+  pointer-events: none;
+  z-index: -1;
+}
+
+#rc-comfort-picker .rcq-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 520px;
+  padding: 8px 4px;
+}
+
+#rc-comfort-picker .rcq-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  width: fit-content;
+  padding: 7px 13px;
+  border: 1px solid rgba(82, 214, 255, 0.3);
+  border-radius: 999px;
+  background: rgba(82, 214, 255, 0.08);
+  color: rgba(247, 251, 255, 0.78);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+#rc-comfort-picker .rcq-kicker span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--rcq-cold);
+  box-shadow: 0 0 18px var(--rcq-cold);
+}
+
+#rc-comfort-picker h2,
+#rc-comfort-picker h3,
+#rc-comfort-picker p {
+  margin: 0;
+}
+
+#rc-comfort-picker .rcq-copy h2 {
+  max-width: 560px;
+  margin-top: 20px;
+  font-family: "Arial Black", "Manrope", sans-serif;
+  font-size: clamp(30px, 4vw, 56px);
+  font-weight: 900;
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+#rc-comfort-picker .rcq-copy p {
+  max-width: 510px;
+  margin-top: 16px;
+  color: var(--rcq-muted);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+#rc-comfort-picker .rcq-progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 30px;
+}
+
+#rc-comfort-picker .rcq-progress-dot {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 12px;
+  font-weight: 900;
+  transition: 0.28s ease;
+}
+
+#rc-comfort-picker .rcq-progress-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(82, 214, 255, 0.45), rgba(255, 255, 255, 0.08));
+}
+
+#rc-comfort-picker .rcq-meter {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  align-items: center;
+  margin-top: 18px;
+  color: rgba(247, 251, 255, 0.58);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+#rc-comfort-picker .rcq-meter div {
+  overflow: hidden;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.11);
+}
+
+#rc-comfort-picker .rcq-meter i {
+  display: block;
+  width: 58%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--rcq-cold), var(--rcq-warm), var(--rcq-hot));
+  animation: rcqMeter 5s ease-in-out infinite alternate;
+}
+
+#rc-comfort-picker .rcq-card {
+  position: relative;
+  min-height: 520px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.055));
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 18px 60px rgba(0, 0, 0, 0.22);
+}
+
+#rc-comfort-picker .rcq-step {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 28px;
+  opacity: 0;
+  transform: translateX(36px) scale(0.98);
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+#rcq-step-1:checked ~ .rcq-shell .rcq-step-1,
+#rcq-step-2:checked ~ .rcq-shell .rcq-step-2,
+#rcq-step-3:checked ~ .rcq-shell .rcq-step-3,
+#rcq-step-4:checked ~ .rcq-shell .rcq-step-4,
+#rcq-step-result:checked ~ .rcq-shell .rcq-result-step {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  pointer-events: auto;
+}
+
+#rc-comfort-picker .rcq-step-head span {
+  display: inline-block;
+  color: var(--rcq-cold);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+#rc-comfort-picker .rcq-step-head h3 {
+  margin-top: 10px;
+  color: #ffffff;
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+}
+
+#rc-comfort-picker .rcq-options {
+  display: grid;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+#rc-comfort-picker .rcq-options label {
+  position: relative;
+  display: block;
+  min-height: 82px;
+  padding: 17px 18px 17px 54px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  background: rgba(5, 16, 31, 0.42);
+  cursor: pointer;
+  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+}
+
+#rc-comfort-picker .rcq-options label::before {
+  content: "";
+  position: absolute;
+  left: 18px;
+  top: 22px;
+  width: 18px;
+  height: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.36);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+#rc-comfort-picker .rcq-options label::after {
+  content: "";
+  position: absolute;
+  left: 23px;
+  top: 27px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--rcq-cold);
+  opacity: 0;
+  box-shadow: 0 0 12px var(--rcq-cold);
+  transition: opacity 0.18s ease;
+}
+
+#rc-comfort-picker .rcq-options label:hover {
+  transform: translateY(-2px);
+  border-color: rgba(82, 214, 255, 0.42);
+  background: rgba(82, 214, 255, 0.08);
+}
+
+#rc-comfort-picker .rcq-options b {
+  display: block;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 900;
+}
+
+#rc-comfort-picker .rcq-options small {
+  display: block;
+  margin-top: 5px;
+  color: var(--rcq-muted);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+#rcq-area-small:checked ~ .rcq-shell label[for="rcq-area-small"],
+#rcq-area-medium:checked ~ .rcq-shell label[for="rcq-area-medium"],
+#rcq-area-large:checked ~ .rcq-shell label[for="rcq-area-large"],
+#rcq-heat-soft:checked ~ .rcq-shell label[for="rcq-heat-soft"],
+#rcq-heat-sun:checked ~ .rcq-shell label[for="rcq-heat-sun"],
+#rcq-heat-max:checked ~ .rcq-shell label[for="rcq-heat-max"],
+#rcq-mode-sleep:checked ~ .rcq-shell label[for="rcq-mode-sleep"],
+#rcq-mode-turbo:checked ~ .rcq-shell label[for="rcq-mode-turbo"],
+#rcq-mode-eco:checked ~ .rcq-shell label[for="rcq-mode-eco"],
+#rcq-install-fast:checked ~ .rcq-shell label[for="rcq-install-fast"],
+#rcq-install-week:checked ~ .rcq-shell label[for="rcq-install-week"],
+#rcq-install-plan:checked ~ .rcq-shell label[for="rcq-install-plan"] {
+  border-color: rgba(82, 214, 255, 0.68);
+  background: linear-gradient(135deg, rgba(82, 214, 255, 0.16), rgba(255, 184, 77, 0.06));
+  box-shadow: 0 10px 34px rgba(82, 214, 255, 0.12);
+}
+
+#rcq-area-small:checked ~ .rcq-shell label[for="rcq-area-small"]::after,
+#rcq-area-medium:checked ~ .rcq-shell label[for="rcq-area-medium"]::after,
+#rcq-area-large:checked ~ .rcq-shell label[for="rcq-area-large"]::after,
+#rcq-heat-soft:checked ~ .rcq-shell label[for="rcq-heat-soft"]::after,
+#rcq-heat-sun:checked ~ .rcq-shell label[for="rcq-heat-sun"]::after,
+#rcq-heat-max:checked ~ .rcq-shell label[for="rcq-heat-max"]::after,
+#rcq-mode-sleep:checked ~ .rcq-shell label[for="rcq-mode-sleep"]::after,
+#rcq-mode-turbo:checked ~ .rcq-shell label[for="rcq-mode-turbo"]::after,
+#rcq-mode-eco:checked ~ .rcq-shell label[for="rcq-mode-eco"]::after,
+#rcq-install-fast:checked ~ .rcq-shell label[for="rcq-install-fast"]::after,
+#rcq-install-week:checked ~ .rcq-shell label[for="rcq-install-week"]::after,
+#rcq-install-plan:checked ~ .rcq-shell label[for="rcq-install-plan"]::after {
+  opacity: 1;
+}
+
+#rc-comfort-picker .rcq-next,
+#rc-comfort-picker .rcq-nav label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 13px 18px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 900;
+  transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+}
+
+#rc-comfort-picker .rcq-next {
+  align-self: flex-end;
+  margin-top: auto;
+  border: 0;
+  background: linear-gradient(135deg, var(--rcq-hot), var(--rcq-burn));
+  color: #ffffff;
+  box-shadow: 0 14px 34px rgba(229, 27, 63, 0.28);
+}
+
+#rc-comfort-picker .rcq-next:hover,
+#rc-comfort-picker .rcq-summary button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 42px rgba(229, 27, 63, 0.34);
+}
+
+#rc-comfort-picker .rcq-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+}
+
+#rc-comfort-picker .rcq-nav label:first-child {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.78);
+}
+
+#rcq-step-1:checked ~ .rcq-shell .rcq-dot-1,
+#rcq-step-2:checked ~ .rcq-shell .rcq-dot-1,
+#rcq-step-2:checked ~ .rcq-shell .rcq-dot-2,
+#rcq-step-3:checked ~ .rcq-shell .rcq-dot-1,
+#rcq-step-3:checked ~ .rcq-shell .rcq-dot-2,
+#rcq-step-3:checked ~ .rcq-shell .rcq-dot-3,
+#rcq-step-4:checked ~ .rcq-shell .rcq-dot-1,
+#rcq-step-4:checked ~ .rcq-shell .rcq-dot-2,
+#rcq-step-4:checked ~ .rcq-shell .rcq-dot-3,
+#rcq-step-4:checked ~ .rcq-shell .rcq-dot-4,
+#rcq-step-result:checked ~ .rcq-shell .rcq-progress-dot {
+  border-color: rgba(82, 214, 255, 0.7);
+  background: rgba(82, 214, 255, 0.16);
+  color: #ffffff;
+  box-shadow: 0 0 22px rgba(82, 214, 255, 0.18);
+}
+
+#rc-comfort-picker .rcq-result-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--rcq-cold);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+#rc-comfort-picker .rcq-result-top strong {
+  padding: 6px 9px;
+  border: 1px solid rgba(255, 184, 77, 0.36);
+  border-radius: 999px;
+  color: var(--rcq-warm);
+  font-size: 10px;
+}
+
+#rc-comfort-picker .rcq-result {
+  display: none;
+  position: relative;
+  overflow: hidden;
+  margin-top: 12px;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(255, 77, 53, 0.22), transparent 38%),
+    radial-gradient(circle at 0% 100%, rgba(82, 214, 255, 0.18), transparent 38%),
+    rgba(5, 16, 31, 0.5);
+}
+
+#rcq-mode-sleep:checked ~ .rcq-shell .rcq-result-sleep,
+#rcq-mode-turbo:checked ~ .rcq-shell .rcq-result-turbo,
+#rcq-mode-eco:checked ~ .rcq-shell .rcq-result-eco {
+  display: grid;
+}
+
+#rc-comfort-picker .rcq-product-visual {
+  position: relative;
+  min-height: 104px;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 50% 8%, rgba(82, 214, 255, 0.34), transparent 36%),
+    linear-gradient(160deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.04));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 16px 34px rgba(0, 0, 0, 0.22);
+}
+
+#rc-comfort-picker .rcq-product-visual::before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  top: 29px;
+  height: 40px;
+  border-radius: 15px;
+  background:
+    linear-gradient(180deg, #ffffff 0%, #dfefff 52%, #b9d4e8 100%);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.22);
+}
+
+#rc-comfort-picker .rcq-product-visual::after {
+  content: "";
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  top: 63px;
+  height: 5px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(31, 124, 255, 0.2), rgba(31, 124, 255, 0.7), rgba(255, 77, 53, 0.38));
+}
+
+#rc-comfort-picker .rcq-product-visual span {
+  position: absolute;
+  top: 40px;
+  right: 24px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #52d6ff;
+  box-shadow: 0 0 14px rgba(82, 214, 255, 0.95);
+}
+
+#rc-comfort-picker .rcq-product-visual i {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 14px;
+  height: 16px;
+  background:
+    linear-gradient(90deg, transparent, rgba(82, 214, 255, 0.42), transparent),
+    repeating-linear-gradient(90deg, rgba(82, 214, 255, 0.12) 0 2px, transparent 2px 12px);
+  filter: blur(0.2px);
+  opacity: 0.8;
+}
+
+#rc-comfort-picker .rcq-sale-badge {
+  display: inline-flex;
+  width: fit-content;
+  margin-bottom: 8px;
+  padding: 6px 9px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--rcq-warm), var(--rcq-hot));
+  color: #21070b;
+  box-shadow: 0 10px 24px rgba(255, 77, 53, 0.26);
+  font-size: 11px;
+  font-weight: 1000;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+#rc-comfort-picker .rcq-result h3 {
+  color: #ffffff;
+  font-size: clamp(22px, 2.5vw, 30px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+#rc-comfort-picker .rcq-price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 9px;
+  margin-top: 7px;
+}
+
+#rc-comfort-picker .rcq-price strong {
+  color: #ffffff;
+  font-size: clamp(20px, 2.2vw, 28px);
+  font-weight: 1000;
+  letter-spacing: -0.035em;
+}
+
+#rc-comfort-picker .rcq-price span {
+  position: relative;
+  color: rgba(255, 255, 255, 0.52);
+  font-size: 14px;
+  font-weight: 900;
+}
+
+#rc-comfort-picker .rcq-price span::after {
+  content: "";
+  position: absolute;
+  left: -3px;
+  right: -3px;
+  top: 52%;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--rcq-hot);
+  transform: rotate(-7deg);
+}
+
+#rc-comfort-picker .rcq-result p {
+  margin-top: 7px;
+  color: var(--rcq-muted);
+  font-size: 13px;
+  line-height: 1.42;
+}
+
+#rc-comfort-picker .rcq-result ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+#rc-comfort-picker .rcq-result li {
+  padding: 7px 9px;
+  border-radius: 999px;
+  background: rgba(82, 214, 255, 0.11);
+  color: rgba(247, 251, 255, 0.82);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+#rc-comfort-picker .rcq-summary {
+  display: grid;
+  gap: 9px;
+  margin-top: 12px;
+  padding: 14px;
+  border: 1px solid rgba(255, 184, 77, 0.32);
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(255, 77, 53, 0.24), transparent 45%),
+    linear-gradient(135deg, rgba(255, 184, 77, 0.14), rgba(255, 77, 53, 0.1));
+  box-shadow: 0 16px 40px rgba(255, 77, 53, 0.13);
+}
+
+#rc-comfort-picker .rcq-summary strong {
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 1000;
+  line-height: 1.15;
+}
+
+#rc-comfort-picker .rcq-summary span {
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+#rc-comfort-picker .rcq-summary button {
+  width: 100%;
+  min-height: 48px;
+  border: 0;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--rcq-hot), var(--rcq-burn));
+  color: #ffffff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 900;
+  box-shadow: 0 14px 34px rgba(229, 27, 63, 0.36);
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+@keyframes rcqOrbit {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rcqMeter {
+  from { width: 34%; }
+  to { width: 92%; }
+}
+
+@media (max-width: 860px) {
+  #rc-comfort-picker .rcq-shell {
+    grid-template-columns: 1fr;
+    padding: 22px;
+    border-radius: 24px;
+  }
+
+  #rc-comfort-picker .rcq-copy {
+    min-height: auto;
+  }
+
+  #rc-comfort-picker .rcq-card {
+    min-height: 570px;
+  }
+}
+
+@media (max-width: 560px) {
+  #rc-comfort-picker .rcq-shell {
+    padding: 16px;
+    border-radius: 20px;
+  }
+
+  #rc-comfort-picker .rcq-copy h2 {
+    font-size: 30px;
+  }
+
+  #rc-comfort-picker .rcq-copy p {
+    font-size: 14px;
+  }
+
+  #rc-comfort-picker .rcq-card {
+    min-height: 0;
+    overflow: visible;
+    border-radius: 20px;
+  }
+
+  #rc-comfort-picker .rcq-step {
+    position: relative;
+    inset: auto;
+    display: none;
+    padding: 20px;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+
+  #rcq-step-1:checked ~ .rcq-shell .rcq-step-1,
+  #rcq-step-2:checked ~ .rcq-shell .rcq-step-2,
+  #rcq-step-3:checked ~ .rcq-shell .rcq-step-3,
+  #rcq-step-4:checked ~ .rcq-shell .rcq-step-4,
+  #rcq-step-result:checked ~ .rcq-shell .rcq-result-step {
+    display: flex;
+    transform: none;
+  }
+
+  #rc-comfort-picker .rcq-options label {
+    min-height: 74px;
+    padding-right: 14px;
+  }
+
+  #rc-comfort-picker .rcq-options {
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  #rc-comfort-picker .rcq-result {
+    grid-template-columns: 1fr;
+  }
+
+  #rc-comfort-picker .rcq-product-visual {
+    min-height: 120px;
+  }
+
+  #rc-comfort-picker .rcq-nav {
+    flex-direction: column;
+    margin-top: 14px;
+  }
+
+  #rc-comfort-picker .rcq-next,
+  #rc-comfort-picker .rcq-nav label {
+    width: 100%;
+  }
+
+  #rc-comfort-picker .rcq-next {
+    margin-top: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #rc-comfort-picker .rcq-orbit,
+  #rc-comfort-picker .rcq-meter i {
+    animation: none;
+  }
+
+  #rc-comfort-picker .rcq-step,
+  #rc-comfort-picker .rcq-options label,
+  #rc-comfort-picker .rcq-next,
+  #rc-comfort-picker .rcq-summary button {
+    transition: none;
+  }
+}
+
+  </style>
+</head>
+<body>
+<div class="popmechanic-reset" id="rc-comfort-picker">
+  <input class="rcq-state" type="radio" name="rcq-step" id="rcq-step-1" checked>
+  <input class="rcq-state" type="radio" name="rcq-step" id="rcq-step-2">
+  <input class="rcq-state" type="radio" name="rcq-step" id="rcq-step-3">
+  <input class="rcq-state" type="radio" name="rcq-step" id="rcq-step-4">
+  <input class="rcq-state" type="radio" name="rcq-step" id="rcq-step-result">
+
+  <input class="rcq-state" type="radio" name="rcq-area" id="rcq-area-small" checked>
+  <input class="rcq-state" type="radio" name="rcq-area" id="rcq-area-medium">
+  <input class="rcq-state" type="radio" name="rcq-area" id="rcq-area-large">
+
+  <input class="rcq-state" type="radio" name="rcq-heat" id="rcq-heat-soft" checked>
+  <input class="rcq-state" type="radio" name="rcq-heat" id="rcq-heat-sun">
+  <input class="rcq-state" type="radio" name="rcq-heat" id="rcq-heat-max">
+
+  <input class="rcq-state" type="radio" name="rcq-mode" id="rcq-mode-sleep" checked>
+  <input class="rcq-state" type="radio" name="rcq-mode" id="rcq-mode-turbo">
+  <input class="rcq-state" type="radio" name="rcq-mode" id="rcq-mode-eco">
+
+  <input class="rcq-state" type="radio" name="rcq-install" id="rcq-install-fast" checked>
+  <input class="rcq-state" type="radio" name="rcq-install" id="rcq-install-week">
+  <input class="rcq-state" type="radio" name="rcq-install" id="rcq-install-plan">
+
+  <section class="rcq-shell" aria-label="Персональный подбор кондиционера">
+    <div class="rcq-orbit" aria-hidden="true"></div>
+    <div class="rcq-noise" aria-hidden="true"></div>
+
+    <div class="rcq-copy">
+      <div class="rcq-kicker"><span></span>Свайпер комфорта</div>
+      <h2>Подберите кондиционер под свою комнату за 40 секунд</h2>
+      <p>Ответьте на 4 коротких вопроса. В конце покажем подходящую модель, мощность и сценарий покупки, чтобы можно было сразу оформить заказ со скидкой.</p>
+
+      <div class="rcq-progress" aria-hidden="true">
+        <span class="rcq-progress-dot rcq-dot-1">1</span>
+        <span class="rcq-progress-line"></span>
+        <span class="rcq-progress-dot rcq-dot-2">2</span>
+        <span class="rcq-progress-line"></span>
+        <span class="rcq-progress-dot rcq-dot-3">3</span>
+        <span class="rcq-progress-line"></span>
+        <span class="rcq-progress-dot rcq-dot-4">4</span>
+      </div>
+
+      <div class="rcq-meter" aria-hidden="true">
+        <span>прохлада</span>
+        <div><i></i></div>
+        <span>жара</span>
+      </div>
+    </div>
+
+    <div class="rcq-card">
+      <div class="rcq-step rcq-step-1">
+        <div class="rcq-step-head">
+          <span>Вопрос 1 из 4</span>
+          <h3>Какая площадь комнаты?</h3>
+        </div>
+        <div class="rcq-options">
+          <label for="rcq-area-small"><b>До 20 м²</b><small>Спальня, детская, кабинет</small></label>
+          <label for="rcq-area-medium"><b>20-35 м²</b><small>Гостиная или большая спальня</small></label>
+          <label for="rcq-area-large"><b>35+ м²</b><small>Студия, зал, открытая зона</small></label>
+        </div>
+        <label class="rcq-next" for="rcq-step-2">Дальше</label>
+      </div>
+
+      <div class="rcq-step rcq-step-2">
+        <div class="rcq-step-head">
+          <span>Вопрос 2 из 4</span>
+          <h3>Насколько комната нагревается?</h3>
+        </div>
+        <div class="rcq-options">
+          <label for="rcq-heat-soft"><b>Умеренно</b><small>Есть тень, солнце не весь день</small></label>
+          <label for="rcq-heat-sun"><b>Солнечная сторона</b><small>Днём заметно жарко</small></label>
+          <label for="rcq-heat-max"><b>Максимальная жара</b><small>Последний этаж, панорамные окна</small></label>
+        </div>
+        <div class="rcq-nav"><label for="rcq-step-1">Назад</label><label class="rcq-next" for="rcq-step-3">Дальше</label></div>
+      </div>
+
+      <div class="rcq-step rcq-step-3">
+        <div class="rcq-step-head">
+          <span>Вопрос 3 из 4</span>
+          <h3>Что важнее всего?</h3>
+        </div>
+        <div class="rcq-options rcq-options-mode">
+          <label for="rcq-mode-sleep"><b>Тихий сон</b><small>Минимум шума ночью</small></label>
+          <label for="rcq-mode-turbo"><b>Быстро охладить</b><small>Зашли с улицы и сразу нужна прохлада</small></label>
+          <label for="rcq-mode-eco"><b>Экономия</b><small>Инвертор и ниже расход энергии</small></label>
+        </div>
+        <div class="rcq-nav"><label for="rcq-step-2">Назад</label><label class="rcq-next" for="rcq-step-4">Дальше</label></div>
+      </div>
+
+      <div class="rcq-step rcq-step-4">
+        <div class="rcq-step-head">
+          <span>Вопрос 4 из 4</span>
+          <h3>Когда хотите оформить заказ?</h3>
+        </div>
+        <div class="rcq-options">
+          <label for="rcq-install-fast"><b>Как можно раньше</b><small>Пока действует скидка 10%</small></label>
+          <label for="rcq-install-week"><b>На этой неделе</b><small>Хочу спокойно выбрать и заказать</small></label>
+          <label for="rcq-install-plan"><b>Планирую заранее</b><small>Хочу зафиксировать выгодную цену</small></label>
+        </div>
+        <div class="rcq-nav"><label for="rcq-step-3">Назад</label><label class="rcq-next" for="rcq-step-result">Показать подбор</label></div>
+      </div>
+
+      <div class="rcq-step rcq-result-step">
+        <div class="rcq-result-top">
+          <span>Мы подобрали вариант</span>
+          <strong>Скидка действует сейчас</strong>
+        </div>
+
+        <div class="rcq-result rcq-result-sleep">
+          <div class="rcq-product-visual" aria-hidden="true"><span></span><i></i></div>
+          <div class="rcq-product-info">
+            <div class="rcq-sale-badge">−10% на кондиционер</div>
+            <h3>Arctic Whisper 09</h3>
+            <div class="rcq-price"><strong>42 900 ₽</strong><span>47 700 ₽</span></div>
+            <p>Тихий инверторный кондиционер для спальни или детской. Ночной режим, мягкий поток и аккуратное поддержание температуры.</p>
+            <ul><li>до 25 м²</li><li>от 19 дБ</li><li>инвертор</li></ul>
+          </div>
+        </div>
+
+        <div class="rcq-result rcq-result-turbo">
+          <div class="rcq-product-visual" aria-hidden="true"><span></span><i></i></div>
+          <div class="rcq-product-info">
+            <div class="rcq-sale-badge">−10% на кондиционер</div>
+            <h3>Breeze Turbo 12</h3>
+            <div class="rcq-price"><strong>49 900 ₽</strong><span>55 500 ₽</span></div>
+            <p>Модель с запасом мощности для солнечных комнат. Быстро охлаждает помещение после жаркого дня и уверенно держит температуру.</p>
+            <ul><li>до 35 м²</li><li>турбо-режим</li><li>усиленный поток</li></ul>
+          </div>
+        </div>
+
+        <div class="rcq-result rcq-result-eco">
+          <div class="rcq-product-visual" aria-hidden="true"><span></span><i></i></div>
+          <div class="rcq-product-info">
+            <div class="rcq-sale-badge">−10% на кондиционер</div>
+            <h3>EcoCool Inverter 12</h3>
+            <div class="rcq-price"><strong>46 900 ₽</strong><span>52 100 ₽</span></div>
+            <p>Баланс комфорта и экономии. Подойдёт для ежедневного использования летом без лишней нагрузки на счёт за электричество.</p>
+            <ul><li>до 35 м²</li><li>A++</li><li>тихий старт</li></ul>
+          </div>
+        </div>
+
+        <div class="rcq-summary">
+          <strong>Успейте оформить заказ до 5 июля</strong>
+          <span>Сейчас действует скидка 10% на кондиционер. Чем ближе жара, тем выше спрос и тем меньше шансов спокойно выбрать нужную модель.</span>
+          <button type="button" data-popmechanic-submit>Оформить заказ</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+</body>
+</html>

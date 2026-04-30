@@ -509,3 +509,20 @@ iframe {
   .copy-card-wide { grid-column: auto; }
   .copy-product-row { grid-template-columns: 1fr; }
 }
+.state-stack {
+  display: grid;
+  gap: 22px;
+}
+.state-frame {
+  height: 820px;
+}
+.mobile-state-row {
+  grid-template-columns: repeat(2, minmax(0, 430px));
+  align-items: start;
+}
+.mobile-state-frame {
+  height: 980px;
+}
+@media (max-width: 980px) {
+  .mobile-state-row { grid-template-columns: 1fr; }
+}
