@@ -18,6 +18,8 @@
   --rc-card-border: rgba(255, 255, 255, 0.12);
   --rc-cycle: 8s;
   width: 100%;
+  overflow: hidden;
+  border-radius: 5px;
   color: var(--rc-text);
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -34,6 +36,7 @@
   width: 100%;
   padding: 48px 24px;
   overflow: hidden;
+  border-radius: 5px;
   background: linear-gradient(180deg, var(--rc-bg-cool-1) 0%, var(--rc-bg-cool-2) 100%);
   isolation: isolate;
 }
@@ -895,5 +898,54 @@
     </section>
   </div>
 </div>
+
+<script>
+(function () {
+  var targetSelector = '#__layout > div > main > div > div > div > div > div > div.section-list.section-list_default > div:nth-child(2)';
+
+  function isVisibleElement(node) {
+    if (!node || node.nodeType !== 1) return false;
+    var tag = node.tagName && node.tagName.toLowerCase();
+    if (tag === 'script' || tag === 'style' || tag === 'noscript') return false;
+    return node.offsetHeight > 0 || node.getClientRects().length > 0;
+  }
+
+  function getBlockRoot(button) {
+    return button.closest('.popmechanic-reset, .popmechanic-main, .rc-heat-section') || button.closest('dialog') || button;
+  }
+
+  function findNextBlock(root) {
+    var selectedTarget = document.querySelector(targetSelector);
+    if (isVisibleElement(selectedTarget)) return selectedTarget;
+
+    var node = root;
+    while (node && node !== document.body) {
+      var next = node.nextElementSibling;
+      while (next) {
+        if (isVisibleElement(next)) return next;
+        next = next.nextElementSibling;
+      }
+      node = node.parentElement;
+    }
+    return null;
+  }
+
+  document.addEventListener('click', function (event) {
+    var button = event.target.closest('.rc-cta-btn');
+    if (!button) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    var root = getBlockRoot(button);
+    var nextBlock = findNextBlock(root);
+    var targetTop = nextBlock
+      ? nextBlock.getBoundingClientRect().top + window.pageYOffset - 16
+      : window.pageYOffset + Math.round(window.innerHeight * 0.85);
+
+    window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' });
+  }, true);
+})();
+</script>
 </body>
 </html>

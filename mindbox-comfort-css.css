@@ -424,9 +424,15 @@
     rgba(5, 16, 31, 0.5);
 }
 
-#rcq-mode-sleep:checked ~ .rcq-shell .rcq-result-sleep,
-#rcq-mode-turbo:checked ~ .rcq-shell .rcq-result-turbo,
-#rcq-mode-eco:checked ~ .rcq-shell .rcq-result-eco {
+#rcq-area-small:checked ~ #rcq-heat-soft:checked ~ .rcq-shell .rcq-result-slot-1,
+#rcq-area-small:checked ~ #rcq-heat-sun:checked ~ .rcq-shell .rcq-result-slot-2,
+#rcq-area-small:checked ~ #rcq-heat-max:checked ~ .rcq-shell .rcq-result-slot-3,
+#rcq-area-medium:checked ~ #rcq-heat-soft:checked ~ .rcq-shell .rcq-result-slot-4,
+#rcq-area-medium:checked ~ #rcq-heat-sun:checked ~ .rcq-shell .rcq-result-slot-5,
+#rcq-area-medium:checked ~ #rcq-heat-max:checked ~ .rcq-shell .rcq-result-slot-6,
+#rcq-area-large:checked ~ #rcq-heat-soft:checked ~ .rcq-shell .rcq-result-slot-7,
+#rcq-area-large:checked ~ #rcq-heat-sun:checked ~ .rcq-shell .rcq-result-slot-8,
+#rcq-area-large:checked ~ #rcq-heat-max:checked ~ .rcq-shell .rcq-result-slot-9 {
   display: grid;
 }
 
